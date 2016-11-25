@@ -2,13 +2,15 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TreeComponent } from './tree/tree.component';
 import { MaterialModule } from '@angular/material';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        TreeComponent
       ],
       imports: [ MaterialModule.forRoot() ]
     });
