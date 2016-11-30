@@ -1,7 +1,7 @@
 import {isNull} from 'util';
 export class Node {
   private _children: Node[] = [];
-  private _hanging: boolean = false;
+  private _hanging: boolean = true;
 
   constructor(private _id: number, private _parent: Node, private _mi: number, private _level: number) {
     if (!isNull(_parent)) {
@@ -11,6 +11,7 @@ export class Node {
 
   appendChild(node: Node): void {
     this._children.push(node);
+    this._hanging = false;
   }
 
   get id(): number {

@@ -22,9 +22,9 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.myForm = this._fb.group({
-      mIsConst: [false],
-      mi: [3],
-      n: [512]
+      mIsConst: [true],
+      mi: [2],
+      n: [3]
     });
   }
 }
