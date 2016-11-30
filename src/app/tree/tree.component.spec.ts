@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { Tree } from './tree';
 
 import { TreeComponent } from './tree.component';
 
@@ -19,6 +20,7 @@ describe('TreeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TreeComponent);
     component = fixture.componentInstance;
+    component.tree = new Tree(2, 10, 'A', true);
     fixture.detectChanges();
   });
 

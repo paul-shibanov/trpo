@@ -71,7 +71,7 @@ export class Tree {
   }
   get nodes() {
     return this.nodesArray
-      .map((node: Node) => `${node.stringIdentifier}: ${node.level}`);
+      .map((node: Node) => node.stringIdentifier);
   }
   get alpha(): number {
     return this._p / this._b;
