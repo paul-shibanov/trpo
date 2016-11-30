@@ -4,6 +4,8 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { TreeComponent } from './tree/tree.component';
 import { MaterialModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -12,7 +14,11 @@ describe('AppComponent', () => {
         AppComponent,
         TreeComponent
       ],
-      imports: [ MaterialModule.forRoot() ]
+      imports: [
+        MaterialModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule
+      ]
     });
   });
 

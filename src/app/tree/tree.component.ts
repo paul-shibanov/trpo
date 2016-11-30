@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewEncapsulation, ElementRef} from '@angular/core';
+import {Component, OnChanges, ViewEncapsulation, ElementRef, Input} from '@angular/core';
 import * as d3 from 'd3';
-
-import {Tree} from './tree';
+import { Tree } from './tree';
 
 @Component({
   selector: 'app-tree',
@@ -9,16 +8,16 @@ import {Tree} from './tree';
   styleUrls: ['./tree.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TreeComponent implements OnInit {
+export class TreeComponent implements OnChanges {
   private host;
+  @Input() tree: Tree = null;
 
   constructor(private element: ElementRef) {
     this.host = d3.select(this.element.nativeElement);
   }
-
-  ngOnInit() {
-    let TreeObject = new Tree(3, 512, 'A', false);
-    let treeData = TreeObject.root;
+  ngOnChanges() {
+    this.host.select('svg').remove();
+    let treeData = this.tree.root;
     // set the dimensions and margins of the diagram
     let margin = {top: 40, right: 90, bottom: 50, left: 90},
       width = 1300 - margin.left - margin.right,
