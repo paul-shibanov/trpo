@@ -1,6 +1,11 @@
 import { Node } from './node';
 import {isNull} from 'util';
 
+export interface IAlpha {
+  p: number;
+  b: number;
+  alpha: number;
+}
 export class Tree {
 
   private _root: Node;
@@ -9,6 +14,7 @@ export class Tree {
   private _h: number = 0;
   private nodesArray: Node[] = []; // Links to each Node;
   private hangingNodesArray: Node[] = []; // Links to each hanging Node;
+  private _alphaTrace:  Array<IAlpha> = [];
 
   private _addNTimes(arr: Node[], n: number, node: Node): void {
     for (let i = 0; i < n; ++i) {
@@ -37,6 +43,7 @@ export class Tree {
       } else {
         this._removeFromHanging(parent);
       }
+      this._alphaTrace.push({p: this._p, b: this._b, alpha: this.alpha});
       this._addNTimes(nextBuildQueue, node.mi, node);
     }
     ++this._h;
@@ -79,5 +86,8 @@ export class Tree {
   }
   get h(): number {
     return this._h;
+  }
+  get alphaTrace(): Array<IAlpha> {
+    return this._alphaTrace;
   }
 }
