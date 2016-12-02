@@ -15,7 +15,6 @@ import {RouterModule} from '@angular/router';
 import {ChartistModule} from 'angular2-chartist';
 import {APP_BASE_HREF} from '@angular/common';
 
-
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
