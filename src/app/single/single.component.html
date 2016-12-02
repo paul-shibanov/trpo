@@ -7,6 +7,9 @@
       <md-slide-toggle formControlName="mIsConst">
         mi is const
       </md-slide-toggle>
+      <md-slide-toggle *ngIf="type === 'random'" formControlName="degenerated">
+        exclude degenerated
+      </md-slide-toggle>
       <md-input class="full-width" placeholder="Maximum nodes in the tree" formControlName="n" type="number"></md-input>
       <br>
       <button md-raised-button type="submit" color="warn">{{!tree ? 'Generate' : 'Regenerate'}}</button>

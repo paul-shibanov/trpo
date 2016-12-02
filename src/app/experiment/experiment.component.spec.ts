@@ -4,7 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ExperimentComponent } from './experiment.component';
-import {MaterialModule} from '@angular/material';
+import { MaterialModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ExperimentComponent', () => {
   let component: ExperimentComponent;
@@ -15,6 +16,7 @@ describe('ExperimentComponent', () => {
       declarations: [ ExperimentComponent ],
       imports: [
         MaterialModule.forRoot(),
+        ReactiveFormsModule,
       ]
     })
     .compileComponents();

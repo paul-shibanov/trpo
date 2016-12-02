@@ -21,6 +21,9 @@ export class TreeNodeHistComponent implements OnChanges {
     series: []
   };
   @HostListener('window:resize', ['$event'])
+  private static onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
   private _update() {
     const parent = this.element.nativeElement.parentNode;
     const parentWidth = parent ? parent.clientWidth : window.innerWidth - 100;
@@ -32,9 +35,10 @@ export class TreeNodeHistComponent implements OnChanges {
 
   ngOnChanges() {
     this._update();
-    this.data.labels = this.miTrace.map((a: IMi) => a.id);
-    this.data.series = [this.miTrace.map((a: IMi) => a.mi)];
+    let mi = this.miTrace.map((a: IMi) => a.mi);
+    let unique = mi.filter(TreeNodeHistComponent.onlyUnique).sort();
+    this.data.labels = unique;
+    this.data.series = [unique.map((m) => mi.filter((c) => m === c).length)];
     this.data = Object.assign({}, this.data);
   }
-
 }

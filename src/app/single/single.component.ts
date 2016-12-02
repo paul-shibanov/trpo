@@ -28,14 +28,16 @@ export class SingleComponent implements OnInit {
           options = {
             mIsConst: false,
             mi: 3,
-            n: 512
+            n: 512,
+            degenerated: true,
           };
           break;
         case 'constant':
           options = {
             mIsConst: true,
             mi: 2,
-            n: 100
+            n: 100,
+            degenerated: false,
           };
           break;
         default:
@@ -47,13 +49,19 @@ export class SingleComponent implements OnInit {
         this.myForm = this.formBuilder.group({
           mIsConst: new FormControl(options.mIsConst),
           mi: new FormControl(options.mi),
-          n: new FormControl(options.n)
+          n: new FormControl(options.n),
+          degenerated: new FormControl(options.degenerated)
         });
       }
     });
   }
   onSubmit(value) {
     this.tree = new Tree(value.mi, value.n, 'A', value.mIsConst);
+    if (value.degenerated) {
+      while (this.tree.p < value.n) {
+        this.tree = new Tree(value.mi, value.n, 'A', value.mIsConst);
+      }
+    }
   }
 
 }
