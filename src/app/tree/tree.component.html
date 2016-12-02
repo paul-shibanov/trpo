@@ -1,7 +1,33 @@
-<p>p={{tree.p}} b={{tree.b}} α={{tree.alpha | number : '1.2-2'}} h={{tree.h}}</p>
-<p>
-  Nodes: {{tree.nodes}}
-</p>
-<p>
-  Hanging nodes: {{tree.hangingNodes}}
-</p>
+<div *ngIf="tree">
+<md-toolbar>Tree characteristics p={{tree.p}} b={{tree.b}} α={{tree.alpha | number : '1.2-2'}} h={{tree.h}}</md-toolbar>
+<md-card>
+  <md-card-content>
+    <md-tab-group>
+      <md-tab label="Tree graph">
+        <h1>Tree graph</h1>
+        <app-tree-graph [root]="tree.root" [h]="tree.h"></app-tree-graph>
+      </md-tab>
+      <md-tab label="Nodes">
+        <h1>Nodes</h1>
+        <p>{{tree.nodes}}</p>
+      </md-tab>
+      <md-tab label="Hanging Nodes">
+        <h1>Hanging nodes</h1>
+        <p>{{tree.hangingNodes}}</p>
+      </md-tab>
+    </md-tab-group>
+    <md-tab-group>
+      <md-tab label="Node Histogram">
+        <h1>Node histogram</h1>
+        <app-tree-node-hist [miTrace]="tree.miTrace"></app-tree-node-hist>
+      </md-tab>
+      <md-tab label="Alpha graph">
+        <h1>Alpha graph</h1>
+        <app-tree-node-alpha-graph [alphaTrace]="tree.alphaTrace"></app-tree-node-alpha-graph>
+      </md-tab>
+
+    </md-tab-group>
+
+  </md-card-content>
+</md-card>
+</div>

@@ -1,0 +1,29 @@
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+  transition: r .2s ease-in-out;
+}
+.node:hover {
+  stroke: black;
+  z-index: 2;
+}
+.node:hover circle {
+  r: 30px;
+  z-index: 2;
+}
+
+.node text { font: 12px sans-serif; }
+.node:hover text { font-size: 18px; }
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+.node--leaf circle{
+  stroke: red;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}

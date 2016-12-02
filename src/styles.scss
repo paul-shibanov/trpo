@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber';
+
+* {
+  //margin: 0px;
+}
+md-card {
+  margin: 16px;
+}
+md-card-actions {
+  text-align: right;
+}
+md-card-actions button {
+  margin: 16px !important;
+}

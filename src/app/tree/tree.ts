@@ -6,6 +6,10 @@ export interface IAlpha {
   b: number;
   alpha: number;
 }
+export interface IMi {
+  id: number;
+  mi: number;
+}
 export class Tree {
 
   private _root: Node;
@@ -89,5 +93,8 @@ export class Tree {
   }
   get alphaTrace(): Array<IAlpha> {
     return this._alphaTrace;
+  }
+  get miTrace(): Array<IMi> {
+    return this.nodesArray.map((n: Node) => ({id: n.id, mi: n.mi}));
   }
 }
