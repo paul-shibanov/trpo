@@ -1,15 +1,40 @@
-<p>
-  experiment works!
-</p>
-
 <md-toolbar>Perform set of experiments</md-toolbar>
-<md-card class="demo-card demo-basic">
+<md-card class="demo-card demo-basic" *ngIf="myForm">
   <md-card-content>
-    <form>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+      <md-input class="full-width" placeholder="Set" formControlName="r" value="200" type="number"></md-input>
       <md-input class="full-width" placeholder="Generation Rule (disabled)" disabled value="A"></md-input>
-      <md-input class="full-width" placeholder="Set" value="200" type="number"></md-input>
-      <md-input class="full-width" placeholder="Maximum nodes in the tree" value="512" type="number"></md-input>
-      <button md-raised-button color="warn">Rebuild</button>
+      <md-input class="full-width" placeholder="mi" formControlName="mi" type="number"></md-input>
+      <md-slide-toggle formControlName="mIsConst">
+        mi is const
+      </md-slide-toggle>
+      <md-input class="full-width" placeholder="Maximum nodes in the tree" formControlName="n" type="number"></md-input>
+      <br>
+      <button md-raised-button type="submit" color="warn">{{!experiment ? 'Generate' : 'Regenerate'}}</button>
     </form>
+  </md-card-content>
+</md-card>
+<md-card *ngIf="experiment">
+  <md-card-content>
+    <table class="zui-table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>P average {{experiment.p }} D(P) {{experiment.px | number : '1.2-2' }}</th>
+        <th>B average {{experiment.b}} D(B) {{experiment.bx | number : '1.2-2'}}</th>
+        <th>Alpha  average {{experiment.alpha | number : '1.2-2'}} D(Alpha) {{experiment.alphax | number : '1.2-2'}}</th>
+        <th>h  average {{experiment.h}} D(h) {{experiment.hx | number : '1.2-2'}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let tree of experiment.trees; let i = index;">
+        <td>{{i + 1}}</td>
+        <td>{{tree.p}}</td>
+        <td>{{tree.b}}</td>
+        <td>{{tree.alpha | number : '1.2-2'}}</td>
+        <td>{{tree.h}}</td>
+      </tr>
+      </tbody>
+    </table>
   </md-card-content>
 </md-card>

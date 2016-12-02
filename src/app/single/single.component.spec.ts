@@ -32,7 +32,6 @@ describe('SingleComponent', () => {
       ],
       imports: [
         MaterialModule.forRoot(),
-        FormsModule,
         ReactiveFormsModule,
         ChartistModule,
         RouterModule.forRoot([
