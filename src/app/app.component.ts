@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Experiment } from './experiment';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Tree } from './tree/tree';
+import 'hammerjs';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +7,14 @@ import { Tree } from './tree/tree';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
-  tree = new Tree(3, 512, 'A', false);
-  ex;
-  output;
-  public myForm: FormGroup;
-  constructor(private _fb: FormBuilder) {
-    this.ex = new Experiment(200, 3, 512, 'A', false);
-  }
-  onSubmit(value) {
-    this.tree = new Tree(value.mi, value.n, 'A', value.mIsConst);
-  }
+  navItems = [
+    {name: 'Single Random', route: 'single/random'},
+    {name: 'Single Constant', route: 'single/constant'},
+    {name: 'Set of Random', route: 'experiment'},
+    {name: 'Set of Random, height', route: 'chips'}
+  ];
+  title = 'Software development technology experiment';
+  constructor() {  }
   ngOnInit() {
-    this.myForm = this._fb.group({
-      mIsConst: [true],
-      mi: [2],
-      n: [3]
-    });
   }
 }

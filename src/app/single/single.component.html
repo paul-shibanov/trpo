@@ -1,0 +1,16 @@
+<md-toolbar>Build a tree {{type}}</md-toolbar>
+<md-card class="demo-card demo-basic" *ngIf="myForm">
+  <md-card-content>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+      <md-input class="full-width" placeholder="Generation Rule (disabled)" disabled value="A"></md-input>
+      <md-input class="full-width" placeholder="mi" formControlName="mi" type="number"></md-input>
+      <md-slide-toggle formControlName="mIsConst">
+        mi is const
+      </md-slide-toggle>
+      <md-input class="full-width" placeholder="Maximum nodes in the tree" formControlName="n" type="number"></md-input>
+      <br>
+      <button md-raised-button type="submit" color="warn">{{!tree ? 'Generate' : 'Regenerate'}}</button>
+    </form>
+  </md-card-content>
+</md-card>
+<app-tree [tree]="tree"></app-tree>

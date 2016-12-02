@@ -5,6 +5,11 @@ import { DebugElement } from '@angular/core';
 import { Tree } from './tree';
 
 import { TreeComponent } from './tree.component';
+import {MaterialModule} from '@angular/material';
+import {TreeGraphComponent} from '../tree-graph/tree-graph.component';
+import {TreeNodeHistComponent} from '../tree-node-hist/tree-node-hist.component';
+import {TreeNodeAlphaGraphComponent} from '../tree-node-alpha-graph/tree-node-alpha-graph.component';
+import {ChartistModule} from 'angular2-chartist';
 
 describe('TreeComponent', () => {
   let component: TreeComponent;
@@ -12,7 +17,18 @@ describe('TreeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TreeComponent ]
+      declarations: [
+        TreeComponent,
+        TreeGraphComponent,
+        TreeNodeHistComponent,
+        TreeNodeAlphaGraphComponent
+      ],
+      imports: [
+        MaterialModule.forRoot(),
+        ChartistModule
+        // FormsModule,
+        // ReactiveFormsModule
+      ]
     })
     .compileComponents();
   }));
