@@ -16,6 +16,7 @@ import { TreeNodeHistComponent } from './tree-node-hist/tree-node-hist.component
 import { TreeNodeAlphaGraphComponent } from './tree-node-alpha-graph/tree-node-alpha-graph.component';
 import { HeightExperimentComponent } from './height-experiment/height-experiment.component';
 import { HeightExperimentGraphComponent } from './height-experiment-graph/height-experiment-graph.component';
+import { ExperimentGraphComponent } from './experiment-graph/experiment-graph.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeightExperimentGraphComponent } from './height-experiment-graph/height
     TreeNodeHistComponent,
     TreeNodeAlphaGraphComponent,
     HeightExperimentComponent,
-    HeightExperimentGraphComponent
+    HeightExperimentGraphComponent,
+    ExperimentGraphComponent
   ],
   imports: [
     BrowserModule,

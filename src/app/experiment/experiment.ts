@@ -1,6 +1,10 @@
 
 import {Tree} from '../tree/tree';
 import {Node} from '../tree/node';
+export interface IExperimentTrace {
+  r: number;
+  h: number;
+}
 export class Experiment {
   private result;
   private _trees: Tree[] = [];
@@ -49,6 +53,9 @@ export class Experiment {
   }
   get hx(): number {
     return this.dispersion(this._trees.map((t: Tree) => t.h));
+  }
+  get trace(): Array<IExperimentTrace> {
+    return this._trees.map((t: Tree, index) => ({r: index + 1, h: t.h}));
   }
   private average(times: number[]): number {
     let sum = times.reduce((a, b) => a + b);

@@ -14,6 +14,7 @@ import {TreeNodeAlphaGraphComponent} from './tree-node-alpha-graph/tree-node-alp
 import {RouterModule} from '@angular/router';
 import {ChartistModule} from 'angular2-chartist';
 import {APP_BASE_HREF} from '@angular/common';
+import {ExperimentGraphComponent} from './experiment-graph/experiment-graph.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -22,6 +23,7 @@ describe('AppComponent', () => {
         AppComponent,
         TreeComponent,
         ExperimentComponent,
+        ExperimentGraphComponent,
         HomeComponent,
         SingleComponent,
         TreeGraphComponent,

@@ -6,6 +6,8 @@ import { DebugElement } from '@angular/core';
 import { ExperimentComponent } from './experiment.component';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import {ChartistModule} from 'angular2-chartist';
+import {ExperimentGraphComponent} from '../experiment-graph/experiment-graph.component';
 
 describe('ExperimentComponent', () => {
   let component: ExperimentComponent;
@@ -13,10 +15,14 @@ describe('ExperimentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExperimentComponent ],
+      declarations: [
+        ExperimentComponent,
+        ExperimentGraphComponent
+      ],
       imports: [
         MaterialModule.forRoot(),
         ReactiveFormsModule,
+        ChartistModule
       ]
     })
     .compileComponents();
