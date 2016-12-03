@@ -9,7 +9,7 @@
       </md-tab>
       <md-tab label="Nodes">
         <h1>Nodes</h1>
-        <p>{{tree.nodes}}</p>
+        <p *ngFor="let level of tree.nodes; let n = index">Level {{n + 1}}: {{level}}</p>
       </md-tab>
       <md-tab label="Hanging Nodes">
         <h1>Hanging nodes</h1>

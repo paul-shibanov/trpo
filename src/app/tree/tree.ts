@@ -75,9 +75,16 @@ export class Tree {
       .join(', ');
   }
   get nodes() {
-    return this.nodesArray
-      .map((node: Node) => node.stringIdentifier)
-      .join(', ');
+    let levels = [];
+    for (let i = 0; i < this._h; ++i) {
+      levels.push([]);
+    }
+    for (let i = 0; i < this.nodesArray.length; ++i) {
+      let node = this.nodesArray[i];
+      levels[node.level].push(node);
+    }
+    return levels
+      .map((level) => level.map((node: Node) => node.stringIdentifier).join(', '));
   }
   get alpha(): number {
     return this._p / this._b;
