@@ -4,11 +4,11 @@ import {Node} from '../tree/node';
 export class Experiment {
   private result;
   private _trees: Tree[] = [];
-  constructor(private R, private m, private n, private stopRule, private mIsConst) {
+  constructor(private R, private _m, private n, private stopRule, private mIsConst) {
     let tree;
     let result = [];
     for (let i = 0; i < R; i++) {
-      tree = new Tree(m, n, stopRule, mIsConst);
+      tree = new Tree(_m, n, stopRule, mIsConst);
       if (tree.p < 512) {
         i--;
         continue;
@@ -22,6 +22,9 @@ export class Experiment {
   }
   get roots(): Node[] {
     return this._trees.map((t: Tree) => t.root);
+  }
+  get m() {
+    return this._m;
   }
   get p(): number {
     return this.average(this._trees.map((t: Tree) => t.p));

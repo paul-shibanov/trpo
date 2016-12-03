@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { TreeComponent } from './tree/tree.component';
-import { MaterialModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {TreeComponent} from './tree/tree.component';
+import {MaterialModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ExperimentComponent} from './experiment/experiment.component';
 import {HomeComponent} from './home/home.component';
 import {SingleComponent} from './single/single.component';
@@ -45,7 +45,7 @@ describe('AppComponent', () => {
           {path: 'experiment', component: ExperimentComponent}
         ]),
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     });
   });
 

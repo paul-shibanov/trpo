@@ -26,9 +26,7 @@ export class ExperimentComponent implements OnInit {
     });
   }
   onSubmit(value) {
-    console.log(value);
     this.experiment = new Experiment(value.r, value.mi, value.n, 'A', value.mIsConst);
-    console.log(this.experiment.trees);
   }
 
 }

@@ -1,0 +1,36 @@
+<md-toolbar>Perform set of experiments</md-toolbar>
+<md-card class="demo-card demo-basic" *ngIf="myForm">
+  <md-card-content>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+      <md-input class="full-width" placeholder="Set" formControlName="r" value="200" type="number"></md-input>
+      <md-input class="full-width" placeholder="Generation Rule (disabled)" disabled value="A"></md-input>
+      <!--<md-input class="full-width" placeholder="mi" formControlName="mi" type="number"></md-input>-->
+      <!--<md-slide-toggle formControlName="mIsConst">-->
+        <!--mi is const-->
+      <!--</md-slide-toggle>-->
+      <md-input class="full-width" placeholder="Maximum nodes in the tree" formControlName="n" type="number"></md-input>
+      <br>
+      <button md-raised-button type="submit" color="warn">{{!heightExperiment ? 'Generate' : 'Regenerate'}}</button>
+    </form>
+  </md-card-content>
+</md-card>
+<md-card *ngIf="heightExperiment">
+  <md-card-content>
+    <table class="zui-table">
+      <thead>
+      <tr>
+        <th>m</th>
+        <th>alpha</th>
+        <th>h</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of heightExperiment.trace">
+        <td>{{item.m}}</td>
+        <td>{{item.alpha | number : '1.2-2'}}</td>
+        <td>{{item.h | number : '1.2-2'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </md-card-content>
+</md-card>
