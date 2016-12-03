@@ -15,6 +15,7 @@ import { ChartistModule } from 'angular2-chartist';
 import { TreeNodeHistComponent } from './tree-node-hist/tree-node-hist.component';
 import { TreeNodeAlphaGraphComponent } from './tree-node-alpha-graph/tree-node-alpha-graph.component';
 import { HeightExperimentComponent } from './height-experiment/height-experiment.component';
+import { HeightExperimentGraphComponent } from './height-experiment-graph/height-experiment-graph.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeightExperimentComponent } from './height-experiment/height-experiment
     TreeGraphComponent,
     TreeNodeHistComponent,
     TreeNodeAlphaGraphComponent,
-    HeightExperimentComponent
+    HeightExperimentComponent,
+    HeightExperimentGraphComponent
   ],
   imports: [
     BrowserModule,

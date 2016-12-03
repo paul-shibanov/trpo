@@ -6,6 +6,8 @@ import { DebugElement } from '@angular/core';
 import { HeightExperimentComponent } from './height-experiment.component';
 import {MaterialModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HeightExperimentGraphComponent} from '../height-experiment-graph/height-experiment-graph.component';
+import {ChartistModule} from 'angular2-chartist';
 
 describe('HeightExperimentComponent', () => {
   let component: HeightExperimentComponent;
@@ -13,10 +15,14 @@ describe('HeightExperimentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeightExperimentComponent ],
+      declarations: [
+        HeightExperimentComponent,
+        HeightExperimentGraphComponent
+      ],
       imports: [
         MaterialModule.forRoot(),
         ReactiveFormsModule,
+        ChartistModule
       ]
     })
     .compileComponents();

@@ -1,4 +1,4 @@
-import {Component, Input, HostListener, ElementRef, OnChanges} from '@angular/core';
+import {Component, Input, HostListener, ElementRef, OnChanges, ViewEncapsulation} from '@angular/core';
 import {IAlpha} from '../tree/tree';
 import {ChartType} from 'angular2-chartist';
 import * as Chartist from 'chartist';
@@ -6,7 +6,8 @@ import * as Chartist from 'chartist';
 @Component({
   selector: 'app-tree-node-alpha-graph',
   templateUrl: './tree-node-alpha-graph.component.html',
-  styleUrls: ['./tree-node-alpha-graph.component.scss']
+  styleUrls: ['./tree-node-alpha-graph.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TreeNodeAlphaGraphComponent implements OnChanges {
   @Input() alphaTrace: Array<IAlpha>;

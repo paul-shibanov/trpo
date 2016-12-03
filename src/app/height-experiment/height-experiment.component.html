@@ -16,6 +16,11 @@
 </md-card>
 <md-card *ngIf="heightExperiment">
   <md-card-content>
+    <app-height-experiment-graph [trace]="heightExperiment.trace"></app-height-experiment-graph>
+  </md-card-content>
+</md-card>
+<md-card *ngIf="heightExperiment">
+  <md-card-content>
     <table class="zui-table">
       <thead>
       <tr>
