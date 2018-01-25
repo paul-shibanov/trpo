@@ -19,7 +19,7 @@
     "@angular/http": "2.2.1",
     "@angular/material": "^2.0.0-alpha.10",
     "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-browser-dynamic": "5.2.2",
     "@angular/router": "3.2.1",
     "angular2-chartist": "^0.10.1",
     "chartist": "^0.10.1",
